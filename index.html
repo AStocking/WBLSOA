@@ -20,7 +20,7 @@
             background-color: #ffffff;
         }
 
-        /* === qgis2web control styling (unchanged) === */
+        /* qgis2web controls */
         .ol-control > * {
             background-color: #f8f8f8!important;
             color: #444444!important;
@@ -43,14 +43,14 @@
             padding: 2px !important;
         }
 
-        /* === Layout === */
+        /* Layout */
         #app {
             display: flex;
             height: 100vh;
             width: 100vw;
         }
 
-        /* OVERRIDE qgis2web absolute positioning */
+        /* Override qgis2web absolute positioning */
         #map {
             flex: 2;
             height: 100%;
@@ -61,6 +61,7 @@
             flex: 1;
             border-left: 1px solid #ccc;
             background: #fff;
+            overflow: hidden;
         }
 
         #pdf-panel iframe {
@@ -69,7 +70,7 @@
             border: none;
         }
 
-        /* === Mobile fallback === */
+        /* Mobile */
         @media (max-width: 900px) {
             #app {
                 flex-direction: column;
@@ -99,7 +100,7 @@
 
     <div id="pdf-panel">
         <iframe
-            src="LSOAWESTBROMWICH.pdf"
+            src="LSOAWESTBROMWICH.pdf#toolbar=0&navpanes=0&scrollbar=1&view=FitH"
             title="LSOA IMD Detail">
         </iframe>
     </div>
@@ -127,7 +128,7 @@
 <script src="./resources/qgis2web.js"></script>
 
 <script>
-    /* Ensure OpenLayers resizes correctly in flex layout */
+    /* Ensure map resizes correctly in flex layout */
     window.addEventListener('load', function () {
         if (typeof map !== 'undefined') {
             map.updateSize();
@@ -137,6 +138,8 @@
 
 </body>
 </html>
+
+
 
 
 
