@@ -20,6 +20,7 @@
             background-color: #ffffff;
         }
 
+        /* === qgis2web control styling (unchanged) === */
         .ol-control > * {
             background-color: #f8f8f8!important;
             color: #444444!important;
@@ -49,14 +50,17 @@
             width: 100vw;
         }
 
+        /* OVERRIDE qgis2web absolute positioning */
         #map {
             flex: 2;
             height: 100%;
+            position: relative !important;
         }
 
         #pdf-panel {
             flex: 1;
             border-left: 1px solid #ccc;
+            background: #fff;
         }
 
         #pdf-panel iframe {
@@ -65,7 +69,7 @@
             border: none;
         }
 
-        /* === Mobile layout === */
+        /* === Mobile fallback === */
         @media (max-width: 900px) {
             #app {
                 flex-direction: column;
@@ -123,7 +127,7 @@
 <script src="./resources/qgis2web.js"></script>
 
 <script>
-    /* Ensure map resizes correctly in flex layout */
+    /* Ensure OpenLayers resizes correctly in flex layout */
     window.addEventListener('load', function () {
         if (typeof map !== 'undefined') {
             map.updateSize();
@@ -133,5 +137,7 @@
 
 </body>
 </html>
+
+
 
 
